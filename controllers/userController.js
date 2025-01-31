@@ -1,6 +1,6 @@
 const { Usuario } = require('../models/usuarioModel');
 
-//verificar que sea admin desde token
+//agregar verificación que sea admin desde token
 exports.getAllUsers = async (req, res) => {
     try {
         const usuarios = await Usuario.findAll();

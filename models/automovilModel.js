@@ -1,35 +1,35 @@
 const { DataTypes } = require('sequelize');
-const { sequelize } = require('../config/db');
+const sequelize = require('../config/db');
 const { Usuario } = require('./usuarioModel');
 
 const Automovil = sequelize.define('Automovil', {
-    Id: {
+    id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,  // Genera un UUID automáticamente
         primaryKey: true,
     },
-    Modelo: {
+    modelo: {
         type: DataTypes.STRING(100),
         allowNull: false,
     },
-    Marca: {
+    marca: {
         type: DataTypes.STRING(100),
         allowNull: false,
     },
-    Anio: {
+    anio: {
         type: DataTypes.INTEGER,
         allowNull: false,
     },
-    Placas: {
+    placas: {
         type: DataTypes.STRING(20),
         unique: true,
         allowNull: false,
     },
-    Color: {
+    color: {
         type: DataTypes.STRING(50),
         allowNull: false,
     },
-    IdUsuario: {
+    idusuario: {
         type: DataTypes.UUID,
         allowNull: false,
         references: {
@@ -37,7 +37,11 @@ const Automovil = sequelize.define('Automovil', {
             key: 'Id'
         }
     }
+}, {
+    tableName: 'automoviles',
+    timestamps: false
 });
 
 module.exports = { Automovil };
+
 

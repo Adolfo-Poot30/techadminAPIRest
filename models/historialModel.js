@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const { sequelize } = require('../config/db');
+const  sequelize  = require('../config/db');
 const { Servicio } = require('./servicioModel');
 const { Cita } = require('./citasModel');
 const { Usuario } = require('./usuarioModel');

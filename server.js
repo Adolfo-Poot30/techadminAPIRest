@@ -13,10 +13,14 @@ app.use(bodyParser.json());
 // Importación de rutas
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
+const automovilRoutes = require('./routes/automovilRoutes');
+const tallerRoute = require('./routes/tallerRoute');
 
 // Uso de las rutas
 app.use('/api/auth', authRoutes);
-app.use('/api/usuarios', userRoutes); // Prefijo para las rutas de usuario
+app.use('/api/usuarios', userRoutes);
+app.use('/api/automoviles', automovilRoutes);
+app.use('/api/talleres', tallerRoute);
 
 // Sincronización con la base de datos y ejecución del servidor
 sequelize.sync().then(() => {
@@ -27,4 +31,3 @@ sequelize.sync().then(() => {
 }).catch(err => {
     console.error('Error al conectar con la base de datos:', err);
 });
-

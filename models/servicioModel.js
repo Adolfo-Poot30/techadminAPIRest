@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/db');
-const { Taller } = require('./tallerModel');
+const  Taller  = require('./tallerModel');
 
 const Servicio = sequelize.define('Servicio', {
     Id: {
