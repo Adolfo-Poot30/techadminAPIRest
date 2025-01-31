@@ -28,7 +28,7 @@ Plataforma Web
 
     Frontend:..... 
     Backend: Node.js con Express.
-    Base de Datos: MySQL
+    Base de Datos: Postgre sql
     Autenticación: JWT
 
 Aplicación Móvil
