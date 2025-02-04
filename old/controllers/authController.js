@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
-const { Usuario } = require('../models/usuarioModel');
-const { hashPassword, comparePassword } = require('../utils/hashUtils');  // Importamos las funciones del hashUtils
-const { validarContrasena } = require('../utils/authUtils');  // Función para validar la contraseña
+const { Usuario } = require('../../../src/models/usuarioModel');
+const { hashPassword, comparePassword } = require('../../../src/utils/hashUtils');  // Importamos las funciones del hashUtils
+const { validarContrasena } = require('../../../src/utils/authUtils');  // Función para validar la contraseña
 
 // Registro de usuario
 exports.register = async (req, res) => {

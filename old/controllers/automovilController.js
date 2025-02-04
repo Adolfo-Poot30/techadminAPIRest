@@ -1,4 +1,4 @@
-const { Automovil } = require('../models/automovilModel');
+const { Automovil } = require('../../../src/models/automovilModel');
 
 exports.createAutomovil = async (req, res) => {
     try {

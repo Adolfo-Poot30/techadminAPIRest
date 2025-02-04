@@ -1,4 +1,4 @@
-const { Usuario } = require('../models/usuarioModel');
+const { Usuario } = require('../../../src/models/usuarioModel');
 
 //agregar verificación que sea admin desde token
 exports.getAllUsers = async (req, res) => {

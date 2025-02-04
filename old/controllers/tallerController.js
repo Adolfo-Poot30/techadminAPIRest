@@ -1,4 +1,4 @@
-const { Taller } = require('../models/tallerModel');
+const { Taller } = require('../../../src/models/tallerModel');
 
 exports.getTalleres = async (req, res) => {
     try {
