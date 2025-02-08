@@ -4,35 +4,40 @@ const { Automovil } = require('./automovilModel');
 const { Taller } = require('./tallerModel');
 
 const Cita = sequelize.define('Cita', {
-    Id: {
+    id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,  // Genera un UUID automáticamente
         primaryKey: true,
     },
-    Fecha: {
+    fecha: {
         type: DataTypes.DATEONLY,
         allowNull: false,
     },
-    Hora: {
+    hora: {
         type: DataTypes.TIME,
         allowNull: false,
     },
-    IdAutomovil: {
+    idautomovil: {
         type: DataTypes.UUID,
         allowNull: false,
         references: {
             model: Automovil,
-            key: 'Id'
+            key: 'id'
         }
     },
-    IdTaller: {
+    idtaller: {
         type: DataTypes.UUID,
         allowNull: false,
         references: {
             model: Taller,
-            key: 'Id'
+            key: 'id'
         }
     }
+}, {
+
+    tableName: 'citas',
+    timestamps: false
+
 });
 
 module.exports = { Cita };

@@ -6,53 +6,56 @@ const { Usuario } = require('./usuarioModel');
 const { Refaccion } = require('./refaccionModel');
 
 const Historial = sequelize.define('Historial', {
-    IdHistorial: {
+    idhistorial: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,  // Genera un UUID automáticamente
         primaryKey: true,
     },
-    Estado: {
+    estado: {
         type: DataTypes.STRING(20),
         allowNull: false,
         validate: {
             isIn: [['pendiente', 'en proceso', 'completado', 'cancelado']]
         }
     },
-    MontoSubtotal: {
+    montosubtotal: {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false,
     },
-    IdServicios: {
+    idservicios: {
         type: DataTypes.UUID,
         allowNull: false,
         references: {
             model: Servicio,
-            key: 'Id'
+            key: 'id'
         }
     },
-    IdCitas: {
+    idcitas: {
         type: DataTypes.UUID,
         allowNull: false,
         references: {
             model: Cita,
-            key: 'Id'
+            key: 'id'
         }
     },
-    IdUsuarioTecnico: {
+    idusuariotecnico: {
         type: DataTypes.UUID,
         allowNull: false,
         references: {
             model: Usuario,
-            key: 'Id'
+            key: 'id'
         }
     },
-    IdRefaccion: {
+    idrefaccion: {
         type: DataTypes.UUID,
         references: {
             model: Refaccion,
-            key: 'Id'
+            key: 'id'
         }
     }
+}, {
+    tableName: 'historial',
+    timestamps: false
 });
 
 module.exports = { Historial };

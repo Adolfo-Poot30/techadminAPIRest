@@ -5,7 +5,7 @@ const { Usuario } = require('./usuarioModel');
 const Automovil = sequelize.define('Automovil', {
     id: {
         type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,  // Genera un UUID automáticamente
+        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
     },
     modelo: {
@@ -34,7 +34,7 @@ const Automovil = sequelize.define('Automovil', {
         allowNull: false,
         references: {
             model: Usuario,
-            key: 'Id'
+            key: 'id'
         }
     }
 }, {

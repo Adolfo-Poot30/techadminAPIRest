@@ -3,20 +3,20 @@ const { sequelize } = require('../config/db');
 const  Taller  = require('./tallerModel');
 
 const Servicio = sequelize.define('Servicio', {
-    Id: {
+    id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,  // Genera un UUID automáticamente
         primaryKey: true,
     },
-    Nombre: {
+    nombre: {
         type: DataTypes.STRING(100),
         allowNull: false,
     },
-    Descripcion: {
+    descripcion: {
         type: DataTypes.TEXT,
         allowNull: false,
     },
-    IdTaller: {
+    idtaller: {
         type: DataTypes.UUID,
         allowNull: false,
         references: {
@@ -24,6 +24,11 @@ const Servicio = sequelize.define('Servicio', {
             key: 'Id'
         }
     }
+}, {
+
+    tableName: 'servicios',
+    timestamps: false
+
 });
 
 module.exports = { Servicio };

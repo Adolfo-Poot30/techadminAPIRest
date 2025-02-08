@@ -6,7 +6,7 @@ const { validarContrasena } = require('../utils/authUtils');  // Función para v
 // Registro de usuario
 exports.register = async (req, res) => {
     try {
-        const { nombres, apellidos, correo, contrasena, idRol, idPermiso, idTaller } = req.body;
+        const { nombres, apellidos, correo, contrasena, idRol, idTaller } = req.body;
 
         // Validar contraseña
         if (!validarContrasena(contrasena)) {
@@ -22,7 +22,6 @@ exports.register = async (req, res) => {
             correo: correo,
             contrasena: hashedPassword,
             idroles: idRol,
-            idpermisos: idPermiso,
             idtaller: idTaller
         });
 
@@ -53,7 +52,7 @@ exports.login = async (req, res) => {
         }
 
         // Generación del token JWT para el usuario
-        const token = jwt.sign({ id: usuario.id, idroles: usuario.idroles }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ id: usuario.id, idroles: usuario.idroles }, process.env.JWT_SECRET, { expiresIn: '5h' });
         res.status(200).json({ message: 'Inicio de sesión exitoso.', token, idroles: usuario.idroles });
     } catch (err) {
         res.status(500).json({ message: 'Error al iniciar sesión.', error: err.message });

@@ -26,7 +26,7 @@ Tecnologías Utilizadas
 
 Plataforma Web
 
-    Frontend:..... 
+    Frontend: React 
     Backend: Node.js con Express.
     Base de Datos: Postgre sql
     Autenticación: JWT

@@ -1,6 +1,5 @@
 const { Usuario } = require('../models/usuarioModel');
 
-//agregar verificación que sea admin desde token
 exports.getAllUsers = async (req, res) => {
     try {
         const usuarios = await Usuario.findAll();
@@ -25,7 +24,7 @@ exports.getUserById = async (req, res) => {
 
 exports.updateUser = async (req, res) => {
     const { id } = req.params;
-    const { nombres, apellidos, correo, idRol, idPermiso, idTaller } = req.body;
+    const { nombres, apellidos, correo, idRol, idTaller } = req.body;
     try {
         const usuario = await Usuario.findByPk(id);
         if (!usuario) {
@@ -37,7 +36,6 @@ exports.updateUser = async (req, res) => {
             Apellidos: apellidos,
             Correo: correo,
             IdRoles: idRol,
-            IdPermisos: idPermiso,
             IdTaller: idTaller
         });
 

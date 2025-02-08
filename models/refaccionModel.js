@@ -3,39 +3,45 @@ const  sequelize  = require('../config/db');
 const { Taller } = require('./tallerModel');
 
 const Refaccion = sequelize.define('Refaccion', {
-    Id: {
+    id: {
         type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,  // Genera un UUID automáticamente
+        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
     },
-    Nombre: {
+    nombre: {
         type: DataTypes.STRING(100),
         allowNull: false,
     },
-    Descripcion: {
+    descripcion: {
         type: DataTypes.TEXT,
         allowNull: false,
     },
-    PrecioCompra: {
+    preciocompra: {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false,
     },
-    PrecioVenta: {
+    precioventa: {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false,
     },
-    Cantidad: {
+    cantidad: {
         type: DataTypes.INTEGER,
         allowNull: false,
     },
-    IdTaller: {
+    idtaller: {
         type: DataTypes.UUID,
         allowNull: false,
         references: {
             model: Taller,
-            key: 'Id'
+            key: 'id'
         }
     }
+}, {
+
+    tableName: 'refacciones',
+    timestamps: false
+
+
 });
 
 module.exports = { Refaccion };

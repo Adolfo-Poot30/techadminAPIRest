@@ -30,10 +30,6 @@ const Usuario = sequelize.define('Usuario', {
         type: DataTypes.UUID,
         allowNull: false
     },
-    idpermisos: {
-        type: DataTypes.UUID,
-        allowNull: false
-    },
     idtaller: {
         type: DataTypes.UUID,
         allowNull: true

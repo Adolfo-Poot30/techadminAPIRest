@@ -2,15 +2,20 @@ const { DataTypes } = require('sequelize');
 const  sequelize  = require('../config/db');
 
 const Rol = sequelize.define('Rol', {
-    Id: {
+    id: {
         type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,  // Genera un UUID automáticamente
+        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
     },
-    Titulo: {
+    titulo: {
         type: DataTypes.STRING(100),
         allowNull: false,
     }
+}, {
+
+    tableName: 'roles',
+    timestamps: false
+
 });
 
 module.exports = { Rol };

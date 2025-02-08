@@ -4,27 +4,27 @@ const sequelize = require('../config/db');
 const Horario = sequelize.define('Horario', {
     id: {
         type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,  // Genera un UUID automáticamente
+        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
     },
-    horaApertura: {
+    horaapertura: {
         type: DataTypes.TIME,
         allowNull: false,
-        field: 'HoraApertura',  // Asegúrate de usar el nombre correcto de la columna en la base de datos
+        field: 'horaapertura',
     },
-    horaCierre: {
+    horacierre: {
         type: DataTypes.TIME,
         allowNull: false,
-        field: 'HoraCierre',  // Asegúrate de usar el nombre correcto de la columna en la base de datos
+        field: 'horacierre',
     },
-    diasLaborales: {
-        type: DataTypes.ARRAY(DataTypes.TEXT),  // Utiliza el tipo ARRAY para almacenar un arreglo de días laborales
+    diaslaborales: {
+        type: DataTypes.ARRAY(DataTypes.TEXT),
         allowNull: false,
-        field: 'DiasLaborales',
+        field: 'diaslaborales',
     },
 }, {
     tableName: 'horarios',
-    timestamps: false  // Si no estás utilizando columnas de fecha (createdAt, updatedAt), puedes dejar esto así
+    timestamps: false
 });
 
 module.exports = { Horario };
