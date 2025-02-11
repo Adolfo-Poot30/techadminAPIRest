@@ -7,7 +7,11 @@ const sequelize = require('./src/core/config/db');
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['*'],
+}));
 app.use(bodyParser.json());
 
 // Importación de rutas
