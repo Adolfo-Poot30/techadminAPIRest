@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/db');
+const sequelize = require('../../core/config/db');
 
 const Horario = sequelize.define('Horario', {
     id: {
@@ -28,4 +28,3 @@ const Horario = sequelize.define('Horario', {
 });
 
 module.exports = { Horario };
-

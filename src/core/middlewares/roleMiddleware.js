@@ -1,4 +1,4 @@
-const { Usuario } = require('../models/usuarioModel');
+const { Usuario } = require('../../modules/users/usuarioModel');
 
 const roleMiddleware = (requiredRole) => {
     return async (req, res, next) => {

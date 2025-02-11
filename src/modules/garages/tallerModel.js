@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/db');
-const { Horario } = require('./horarioModel');
+const sequelize = require('../../core/config/db');
+const { Horario } = require('../schedules/horarioModel');
 
 const Taller = sequelize.define('Taller', {
     id: {

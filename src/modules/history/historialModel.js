@@ -1,9 +1,9 @@
 const { DataTypes } = require('sequelize');
-const  sequelize  = require('../config/db');
-const { Servicio } = require('./servicioModel');
-const { Cita } = require('./citasModel');
-const { Usuario } = require('./usuarioModel');
-const { Refaccion } = require('./refaccionModel');
+const  sequelize  = require('../../core/config/db');
+const { Servicio } = require('../services/servicioModel');
+const { Cita } = require('../appointments/citasModel');
+const { Usuario } = require('../users/usuarioModel');
+const { Refaccion } = require('../replacement_part/refaccionModel');
 
 const Historial = sequelize.define('Historial', {
     idhistorial: {
@@ -59,4 +59,3 @@ const Historial = sequelize.define('Historial', {
 });
 
 module.exports = { Historial };
-

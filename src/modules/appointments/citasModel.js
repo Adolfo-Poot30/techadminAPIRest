@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
-const  sequelize  = require('../config/db');
-const { Automovil } = require('./automovilModel');
-const { Taller } = require('./tallerModel');
+const  sequelize  = require('../../core/config/db');
+const { Automovil } = require('../vehicles/automovilModel');
+const { Taller } = require('../garages/tallerModel');
 
 const Cita = sequelize.define('Cita', {
     id: {

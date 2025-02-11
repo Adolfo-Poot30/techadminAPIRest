@@ -1,12 +1,12 @@
 const jwt = require('jsonwebtoken');
-const { Usuario } = require('../models/usuarioModel');
-const { hashPassword, comparePassword } = require('../utils/hashUtils');  // Importamos las funciones del hashUtils
-const { validarContrasena } = require('../utils/authUtils');  // Función para validar la contraseña
+const { Usuario } = require('../users/usuarioModel');
+const { hashPassword, comparePassword } = require('../../core/utils/hashUtils');  // Importamos las funciones del hashUtils
+const { validarContrasena } = require('../../core/utils/authUtils');  // Función para validar la contraseña
 
 // Registro de usuario
 exports.register = async (req, res) => {
     try {
-        const { nombres, apellidos, correo, contrasena, idRol, idTaller } = req.body;
+        const { nombres, apellidos, correo, contrasena, idroles, idtaller } = req.body;
 
         // Validar contraseña
         if (!validarContrasena(contrasena)) {
@@ -21,8 +21,8 @@ exports.register = async (req, res) => {
             apellidos: apellidos,
             correo: correo,
             contrasena: hashedPassword,
-            idroles: idRol,
-            idtaller: idTaller
+            idroles: idroles,
+            idtaller: idtaller
         });
 
         // Generación del token JWT para el usuario

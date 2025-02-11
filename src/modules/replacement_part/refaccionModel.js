@@ -1,47 +1,47 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/db');
-const { Usuario } = require('./usuarioModel');
+const  sequelize  = require('../../core/config/db');
+const { Taller } = require('../garages/tallerModel');
 
-const Automovil = sequelize.define('Automovil', {
+const Refaccion = sequelize.define('Refaccion', {
     id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
     },
-    modelo: {
+    nombre: {
         type: DataTypes.STRING(100),
         allowNull: false,
     },
-    marca: {
-        type: DataTypes.STRING(100),
+    descripcion: {
+        type: DataTypes.TEXT,
         allowNull: false,
     },
-    anio: {
+    preciocompra: {
+        type: DataTypes.DECIMAL(10, 2),
+        allowNull: false,
+    },
+    precioventa: {
+        type: DataTypes.DECIMAL(10, 2),
+        allowNull: false,
+    },
+    cantidad: {
         type: DataTypes.INTEGER,
         allowNull: false,
     },
-    placas: {
-        type: DataTypes.STRING(20),
-        unique: true,
-        allowNull: false,
-    },
-    color: {
-        type: DataTypes.STRING(50),
-        allowNull: false,
-    },
-    idusuario: {
+    idtaller: {
         type: DataTypes.UUID,
         allowNull: false,
         references: {
-            model: Usuario,
+            model: Taller,
             key: 'id'
         }
     }
 }, {
-    tableName: 'automoviles',
+
+    tableName: 'refacciones',
     timestamps: false
+
+
 });
 
-module.exports = { Automovil };
-
-
+module.exports = { Refaccion };

@@ -1,6 +1,6 @@
 const express = require('express');
-const { getAllUsers, getUserById, updateUser, deleteUser } = require('../controllers/userController');
-const { authenticate } = require('../middlewares/authMiddleware'); // Middleware de autenticación
+const { getAllUsers, getUserById, updateUser, deleteUser } = require('./userController');
+const { authenticate } = require('../../core/middlewares/authMiddleware'); // Middleware de autenticación
 const router = express.Router();
 
 /**

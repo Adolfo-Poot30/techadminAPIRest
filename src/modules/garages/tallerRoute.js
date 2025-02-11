@@ -1,5 +1,5 @@
 const express = require('express');
-const { getTalleres } = require('../controllers/tallerController');
+const { getTalleres } = require('./tallerController');
 const router = express.Router();
 
 // Ruta para obtener talleres con paginación

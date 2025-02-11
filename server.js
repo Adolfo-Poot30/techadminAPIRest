@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const sequelize = require('./config/db');
+const sequelize = require('./src/core/config/db');
 
 dotenv.config();
 
@@ -11,12 +11,12 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Importación de rutas
-const authRoutes = require('./routes/authRoutes');
-const userRoutes = require('./routes/userRoutes');
-const automovilRoutes = require('./routes/automovilRoutes');
-const tallerRoute = require('./routes/tallerRoute');
+const authRoutes = require('./src/modules/auth/authRoutes');
+const userRoutes = require('./src/modules/users/userRoutes');
+const automovilRoutes = require('./src/modules/vehicles/automovilRoutes');
+const tallerRoute = require('./src/modules/garages/tallerRoute');
 
-// Uso de las rutas
+// Uso de las rutas y definiendo endpoints
 app.use('/api/auth', authRoutes);
 app.use('/api/usuarios', userRoutes);
 app.use('/api/automoviles', automovilRoutes);

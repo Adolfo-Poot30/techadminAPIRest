@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
-const { sequelize } = require('../config/db');
-const  Taller  = require('./tallerModel');
+const { sequelize } = require('../../core/config/db');
+const  Taller  = require('../garages/tallerModel');
 
 const Servicio = sequelize.define('Servicio', {
     id: {
@@ -32,4 +32,3 @@ const Servicio = sequelize.define('Servicio', {
 });
 
 module.exports = { Servicio };
-
