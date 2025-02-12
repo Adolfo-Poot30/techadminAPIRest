@@ -38,7 +38,7 @@ exports.register = async (req, res) => {
 exports.login = async (req, res) => {
     try {
         const { correo, contrasena, idroles } = req.body;
-        const usuario = await Usuario.findOne({ where: { correo: correo },  attributes: ['id', 'idroles', 'contrasena'] });
+        const usuario = await Usuario.findOne({ where: { correo: correo },  attributes: ['id', 'idroles', 'contrasena', 'nombres', 'correo'] });
 
         if (!usuario) {
             return res.status(400).json({ message: 'Correo o contraseña incorrectos.' });
@@ -52,8 +52,8 @@ exports.login = async (req, res) => {
         }
 
         // Generación del token JWT para el usuario
-        const token = jwt.sign({ id: usuario.id, idroles: usuario.idroles }, process.env.JWT_SECRET, { expiresIn: '5h' });
-        res.status(200).json({ message: 'Inicio de sesión exitoso.', token, idroles: usuario.idroles });
+        const token = jwt.sign({ id: usuario.id, idroles: usuario.idroles, nombres: usuario.nombres, correo: usuario.correo  }, process.env.JWT_SECRET, { expiresIn: '5h' });
+        res.status(200).json({ message: 'Inicio de sesión exitoso.', token, idroles: usuario.idroles, nombres: usuario.nombres, correo: usuario.correo });
     } catch (err) {
         res.status(500).json({ message: 'Error al iniciar sesión.', error: err.message });
     }
